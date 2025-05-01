@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Copyright (c) 2010-2013 Tinyboard Development Group
+ * Forked by smallanon, '24.
+ */ 
 class Twig_Extensions_Extension_Tinyboard extends Twig_Extension
 {
 	/**
@@ -53,7 +56,7 @@ class Twig_Extensions_Extension_Tinyboard extends Twig_Extension
 	*/
 	public function getName()
 	{
-		return 'tinyboard';
+		return 'tohorweb';
 	}
 }
 

@@ -1,6 +1,6 @@
 <?php 
-require '../inc/instance-config.php';
-require '../inc/functions.php' ;
+require '../../inc/instance-config.php';
+require '../../inc/functions.php' ;
 error_reporting(E_ALL);
 ini_set('display_errors','1');
 $page="home"; if (isset($_GET['page'])) $page=$_GET['page'];
@@ -8,7 +8,7 @@ class MyDB extends SQLite3
 {
     function __construct()
     {
-        $this->open('../tmp/website.db');
+        $this->open('../../tmp/website.db');
     }
 }
 
@@ -78,19 +78,19 @@ $db = new MyDB();
 </div>
 <!-- Navigation Tabs -->
 <div id='myTabs' class="container" style="top:-10px;height: 30px; border: 2px;">
-	<a href="/index.html" class='tabTitle tabHome'>Home</a>
-	<a href="/our_beaches.html" class='tabTitle tabPage1'>Our Beaches</a>
-	<a href="/employment.html" class='tabTitle tabPage2'>Employment</a>
-	<a href="/forms.html" class='tabTitle tabPDFs'>Forms</a>
-	<a href="/media.html" class='tabTitle tabPDFs'>Media</a>
-	<a href="/contact_us.html" class='tabTitle tabReports'>Contact Us</a>
-	<a href="/staff_login.html" class='tabTitle tabLogin'>Staff Login</a>
+	<a href="/" class='tabTitle tabHome'>Home</a>
+	<a href="localhost/our_beaches/" class='tabTitle tabPage1'>Our Beaches</a>
+	<a href="localhost/employment/" class='tabTitle tabPage2'>Employment</a>
+	<a href="localhost/forms/" class='tabTitle tabPDFs'>Forms</a>
+	<a href="localhost/media/" class='tabTitle tabPDFs'>Media</a>
+	<a href="localhost/contact_us/" class='tabTitle tabReports'>Contact Us</a>
+	<a href="localhost/staff_login/" class='tabTitle tabLogin'>Staff Login</a>
 </div>
 <!-- End Navigation Tabs -->
 <!--Begin index content-->
 		
 		<div class="myPageContent">
- <?php echo file_get_contents("./homepage.html")?>
+<h1>Beaches of the Town</h1><div class="myTextBox"><p>Some of Long Islandss most beautiful South Shore beaches are located in the Town of Hempstead. Ocean beaches at Point Lookout,Lido,and Lido West areopen from Memorial Day weekend through Labor Day. In addition to its four beaches along the Atlantic shoreline, the town also operates a bay beach at Hewlett Point Park in Bay Park and a small beachfront along Hog Island Channel in the community of Harbor Isle. <a href= http://www.lishore.org/jones/latest.php>Photos from the latest at Point Lookout.</a></p></div>
 		</div>
 <!-- Begin footer content -->
 <hr>

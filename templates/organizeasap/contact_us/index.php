@@ -1,6 +1,6 @@
 <?php 
-require '../inc/instance-config.php';
-require '../inc/functions.php' ;
+require '../../inc/instance-config.php';
+require '../../inc/functions.php' ;
 error_reporting(E_ALL);
 ini_set('display_errors','1');
 $page="home"; if (isset($_GET['page'])) $page=$_GET['page'];
@@ -8,7 +8,7 @@ class MyDB extends SQLite3
 {
     function __construct()
     {
-        $this->open('../tmp/website.db');
+        $this->open('../../tmp/website.db');
     }
 }
 
@@ -78,19 +78,19 @@ $db = new MyDB();
 </div>
 <!-- Navigation Tabs -->
 <div id='myTabs' class="container" style="top:-10px;height: 30px; border: 2px;">
-	<a href="/index.html" class='tabTitle tabHome'>Home</a>
-	<a href="/our_beaches.html" class='tabTitle tabPage1'>Our Beaches</a>
-	<a href="/employment.html" class='tabTitle tabPage2'>Employment</a>
-	<a href="/forms.html" class='tabTitle tabPDFs'>Forms</a>
-	<a href="/media.html" class='tabTitle tabPDFs'>Media</a>
-	<a href="/contact_us.html" class='tabTitle tabReports'>Contact Us</a>
-	<a href="/staff_login.html" class='tabTitle tabLogin'>Staff Login</a>
+	<a href="/index.php" class='tabTitle tabHome'>Home</a>
+	<a href="/our_beaches/" class='tabTitle tabPage1'>Our Beaches</a>
+	<a href="/employment/" class='tabTitle tabPage2'>Employment</a>
+	<a href="/forms/" class='tabTitle tabPDFs'>Forms</a>
+	<a href="/media/" class='tabTitle tabPDFs'>Media</a>
+	<a href="/contact_us/" class='tabTitle tabReports'>Contact Us</a>
+	<a href="/staff_login/" class='tabTitle tabLogin'>Staff Login</a>
 </div>
 <!-- End Navigation Tabs -->
 <!--Begin index content-->
 		
 		<div class="myPageContent">
- <?php echo file_get_contents("./homepage.html")?>
+<!DOCTYPE html><h1 style="text-align: center;">Reports</h1><div class="myTextBox"><h2>Reports Form</h2><p>No nonsense, no outside links, as simple as this. The request is uploaded to our system and our guards are texted to respond as soon as possible.</p><form action="post.php" method="post"><table><tbody><tr><th>Name</th><td><input type="text" name="name" size="25" maxlength="35" autocomplete="off" value=""></td></tr><tr><th>Beach</th><td><select name="options" id="options" autocomplete="off"><option value="civic">Civic Beach</option><option value="ptlookout">Point Lookout Beach</option><option value="malibu">Malibu Shore Club Beach</option><option value="nickerson">Nickerson Beach</option><option value="mushrooms">Lido Beach (Mushrooms)/The Shore</option><option value="mushrooms">Lido Beach Estates</option><option value="lidowest">Lido West Beach</option><option value="EAB">East Atlantic Beach</option><option value="mushrooms">Lido Beach (Mushrooms)/The Shore</option><option value="" selected="selected"></option></select></td></tr><tr><th>Subject</th><td><input style="float:left;" type="text" name="subject" size="25" maxlength="100" autocomplete="off"><input accesskey="s" style="margin-left:2px;" type="submit" name="post" value="Submit"></td></tr><tr><th>Description</th><td><textarea name="body" id="body" rows="5" cols="50"></textarea></td></tr><tr><th>File Upload</th><td><input type="file" name="file_multiple[]" id="upload_file" multiple/><script type="text/javascript">if (typeof init_file_selector !== "undefined") { var iOS_ifs = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform); if(!iOS_ifs) { init_file_selector({{ config.max_images }}); } }</script></td></tr></tbody></table></form></div>
 		</div>
 <!-- Begin footer content -->
 <hr>

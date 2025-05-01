@@ -3,16 +3,7 @@ require '../inc/instance-config.php';
 require '../inc/functions.php' ;
 error_reporting(E_ALL);
 ini_set('display_errors','1');
-$page="home"; if (isset($_GET['page'])) $page=$_GET['page'];
-class MyDB extends SQLite3
-{
-    function __construct()
-    {
-        $this->open('../tmp/website.db');
-    }
-}
-
-$db = new MyDB();
+$page='home'; if (isset($_GET['page'])) $page=$_GET['page'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +20,6 @@ $db = new MyDB();
 	<?php if (isset($config['web_keywords'])):?>
   		<meta name="keywords" content='<?php echo $config['web_keywords']?>'>
 	<?php endif?>
-	<meta charset="utf-8">
   	<meta name="author" content="b7ttd">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" type="text/css" href="../static/styles.css">
@@ -37,7 +27,7 @@ $db = new MyDB();
 </head>
 <body>
 <div class="myPageWrapper">
-<div class="myPage" style="min-height: <?php echo $db->querySingle('SELECT pixels FROM posts WHERE page="'.$page.'"')?>px;">
+<div class="myPage" style="min-height: <?php echo $config['page'][$page][0]?>px;">
 
 <!-- myTabs begins here -->
 <div class="container" style="height:410px">
@@ -78,25 +68,28 @@ $db = new MyDB();
 </div>
 <!-- Navigation Tabs -->
 <div id='myTabs' class="container" style="top:-10px;height: 30px; border: 2px;">
-	<a href="/index.html" class='tabTitle tabHome'>Home</a>
-	<a href="/our_beaches.html" class='tabTitle tabPage1'>Our Beaches</a>
-	<a href="/employment.html" class='tabTitle tabPage2'>Employment</a>
-	<a href="/forms.html" class='tabTitle tabPDFs'>Forms</a>
-	<a href="/media.html" class='tabTitle tabPDFs'>Media</a>
-	<a href="/contact_us.html" class='tabTitle tabReports'>Contact Us</a>
-	<a href="/staff_login.html" class='tabTitle tabLogin'>Staff Login</a>
+	<a href="/index.php" class='tabTitle tabHome'>Home</a>
+	<a href="/index.php?page=our_beaches" class='tabTitle tabPage1'>Our Beaches</a>
+	<a href="/index.php?page=employment" class='tabTitle tabPage2'>Employment</a>
+	<a href="/index.php?page=forms" class='tabTitle tabPDFs'>Forms</a>
+	<a href="/index.php?page=media" class='tabTitle tabPDFs'>Media</a>
+	<a href="/index.php?page=contact_us" class='tabTitle tabReports'>Contact Us</a>
+	<a href="/index.php?page=staff_login" class='tabTitle tabLogin'>Staff Login</a>
 </div>
 <!-- End Navigation Tabs -->
 <!--Begin index content-->
 		
 		<div class="myPageContent">
- <?php echo file_get_contents("./homepage.html")?>
+			<?php echo $config['page'][$page][1];?>
 		</div>
 <!-- Begin footer content -->
+<html lang="en">
 <hr>
 <br>
 <a href='https://instagram.com/tohoceanlifeguards?igsh=MW5wemc3ZHBjZWxxdw=='><img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogos-world.net%2Fwp-content%2Fuploads%2F2020%2F06%2FInstagram-Logo-120x67.png&f=1&nofb=1&ipt=2e1d633f50db8d7142f6e884fed0fb0486388c4ce83d774e90e9ec7aedffe614&ipo=images' alt="InstagramLogo"/></a>
 <a href='https://www.facebook.com/groups/144084575830/'><img height="75"src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F91%2FPNG%2F128%2Ffacebook_16423.png&f=1&nofb=1&ipt=152e977ae5e4538668148453bf4324d4b5906b872af0e0bf2ee82aafbb9094b6&ipo=image' alt="FacebookLogo"/></a>
+
+
 <div class="myFooter">
 	<div style="text-align: left;"> &copy; 2024 Town of Hempstead Ocean Rescue. All Rights Reserved. Original Web design by <a href="https://github.com/elsaburren/website" class="myLink" target="_blank">Elsa Burren</a>, forked by <a href="https://github.com/b7ttd/tohorweb" class="myLink" target="_blank">Daniel Butt</a>
 		<h5 style='text-align:center;'>Direct all questions to buttdann84@gmail.com</h5>

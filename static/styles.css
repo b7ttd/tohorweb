@@ -3,19 +3,53 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+.content {
+	position: relative;
+	z-index: 2;
+}
+.topcontainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 410px;
+	border: 2px solid #000000;
+	padding: 01px;
+	position: relative;
+}
+.bottomcontainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 200px;
+	border: 2px solid #000000;
+	padding: 01px;
+	position: relative;
+	top: -10px;
+	height: 30px;
+	border: 2px;
+}
 .container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 400px;
-	border: 2px solid #006100;
+	height: 200px;
+	border: 2px solid #000000;
 	padding: 01px;
 	position: relative;
+}
+.spread2evenely {
+    display: inline-block;
+    *display: inline; /* For IE7 */
+    zoom: 1; /* Trigger hasLayout */
+    width: 100%;
+    text-align: center;
 }
 .left-element {
 	position: relative;
 	width: 60%;
 	z-index: 0;
+	right: 1px;
 }
 .centered-element {
 	position: absolute;
@@ -25,19 +59,23 @@
 	z-index: 1;
 }
 .right-element {
-	height: 10;
-	width: 45;style="right:100px; top:40px";
 	padding: 1px;
-	text-align: left;
+	text-align: center;
 }
 
 .caption {
 	display:block;
 	font-family: Lato!important;
 }
+
 body {
 	font-family: Lato!important;
 	display: block;
+    	position: absolute;
+    	top: 0;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
 }
 dd {
 	margin-bottom: 2vh;
@@ -45,14 +83,14 @@ dd {
 }
 h1 {
 	font-size: 1.5em !important;
-	font-family: Recoleta!important;
+	font-family: Racing Sans One!important;
 	color: rgb(69,69,69);
 	font-weight: bold;
 	text-align: center;
 }
 h2 {
 	font-size: 1.2em !important;
-	font-family: Recoleta!important;
+	font-family: Racing Sans One!important;
 	color: rgb(69,69,69);
 	font-weight: bold !important;
  	margin-top: 0.2em !important;
@@ -60,7 +98,7 @@ h2 {
 }
 h3 {
 	font-size: 1.1em !important;
-	font-family: Recoleta!important;
+	font-family: Racing Sans One!important;
 	color: rgb(69,69,69);
 	font-weight: bold !important;
  	margin-top: 0.2em !important;
@@ -83,7 +121,7 @@ title {
 	display: none;
 }
 ul {
-	max-width: 90vw;
+	max-width: 2000px;
 }
 a.myLink {
 	text-decoration: underline;
@@ -106,9 +144,17 @@ a.tabTitle:active, #Home a.tabHome, #Page1 a.tabPage1, #Page2 a.tabPage2, #PDFs 
 }
 .myPageWrapper{
 	background-color: rgb(153,153,153);
-	background-image: linear-gradient(to bottom, rgb(153, 153, 153), rgb(180,180,180));
-	width: 100vw;	
+	background-image: url('/static/wp-content/ColeRinnImage.jpg');
+    	background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-origin: padding-box;
+    background-clip: border-box;
+	width: 1365px;	
 	text-align: center;
+	padding-top: 35px;
+	padding-bottom: 35px;
 }
 .myPage{
 	max-width: 400px;
@@ -230,7 +276,9 @@ a.tabTitle:active, #Home a.tabHome, #Page1 a.tabPage1, #Page2 a.tabPage2, #PDFs 
 }
 #menuDropDown:checked ~ #myTabsDropDown{
 	display: block;
+#nomargin{
 
+}
 .center {
 	display: block;
 	margin-left: auto;
@@ -240,4 +288,9 @@ a.tabTitle:active, #Home a.tabHome, #Page1 a.tabPage1, #Page2 a.tabPage2, #PDFs 
 .image-container {
 	display: flex;
 	justify-content: center;
+}
+.racing-sans-one-regular {
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

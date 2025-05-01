@@ -1,6 +1,6 @@
 <?php 
-require '../inc/instance-config.php';
-require '../inc/functions.php' ;
+require '../../inc/instance-config.php';
+require '../../inc/functions.php' ;
 error_reporting(E_ALL);
 ini_set('display_errors','1');
 $page="home"; if (isset($_GET['page'])) $page=$_GET['page'];
@@ -78,19 +78,19 @@ $db = new MyDB();
 </div>
 <!-- Navigation Tabs -->
 <div id='myTabs' class="container" style="top:-10px;height: 30px; border: 2px;">
-	<a href="/index.html" class='tabTitle tabHome'>Home</a>
-	<a href="/our_beaches.html" class='tabTitle tabPage1'>Our Beaches</a>
-	<a href="/employment.html" class='tabTitle tabPage2'>Employment</a>
-	<a href="/forms.html" class='tabTitle tabPDFs'>Forms</a>
-	<a href="/media.html" class='tabTitle tabPDFs'>Media</a>
-	<a href="/contact_us.html" class='tabTitle tabReports'>Contact Us</a>
-	<a href="/staff_login.html" class='tabTitle tabLogin'>Staff Login</a>
+	<a href="/index.php" class='tabTitle tabHome'>Home</a>
+	<a href="/index.php?page=our_beaches" class='tabTitle tabPage1'>Our Beaches</a>
+	<a href="/index.php?page=employment" class='tabTitle tabPage2'>Employment</a>
+	<a href="/index.php?page=forms" class='tabTitle tabPDFs'>Forms</a>
+	<a href="/index.php?page=media" class='tabTitle tabPDFs'>Media</a>
+	<a href="/index.php?page=contact_us" class='tabTitle tabReports'>Contact Us</a>
+	<a href="/index.php?page=staff_login" class='tabTitle tabLogin'>Staff Login</a>
 </div>
 <!-- End Navigation Tabs -->
 <!--Begin index content-->
 		
 		<div class="myPageContent">
- <?php echo file_get_contents("./homepage.html")?>
+			<?php echo $db->querySingle('SELECT body FROM posts WHERE page="'.$page.'"');?>
 		</div>
 <!-- Begin footer content -->
 <hr>

@@ -1,0 +1,10 @@
+{
+	"config":{
+		"web_title":"TOH Ocean Rescue",
+		"web_description":"Ocean Rescue for Point Lookout beach",
+		"web_keywords":"Lifeguards, Point Lookout, Long Beach, Long Island, First Responders, Ocean Rescue",
+		"web_footer": "true",
+		"web_tabs": "true"
+		"web_icon": "https://tohor.neocities.org/static/wp_content/TownOfHempsteadLogo.ico",
+		"phone_number": "516-801-5699",
+

@@ -1,34 +1,15 @@
-<?php 
-require '../inc/instance-config.php';
-require '../inc/functions.php' ;
-error_reporting(E_ALL);
-ini_set('display_errors','1');
-$page="home"; if (isset($_GET['page'])) $page=$_GET['page'];
-class MyDB extends SQLite3
-{
-    function __construct()
-    {
-        $this->open('../tmp/website.db');
-    }
-}
-
-$db = new MyDB();
-?>
-<!DOCTYPE html>
+<!DOCTYPE html. This document is given to the world free will!>
 <html>
 <head>
-	<title>
-	<?php echo $config['web_title'];?>
+	<title id="title_js">
+	Town of Hempstead Ocean Rescue
 	</title>
-	<?php if (isset($config['web_icon'])):?>
-	<link rel = "icon" href="<?php echo $config['web_icon']?>" type = "images/x-icon">
-	<?php endif?>
-	<?php if (isset($config['web_description'])):?>
-		<meta name="description" content="<?php echo $config['web_description']?>">
-	<?php endif?>
-	<?php if (isset($config['web_keywords'])):?>
-  		<meta name="keywords" content='<?php echo $config['web_keywords']?>'>
-	<?php endif?>
+
+	<script src="https://cdn.jsdelivr.net/npm/ol@v10.5.0/dist/ol.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.5.0/ol.css">
+	<link rel = "icon" href="../static/wp-content/TownOfHempsteadLogo.ico" type = "images/x-icon">
+		<meta name="description" content="Ocean Rscue for Long Island">
+  		<meta name="keywords" content="Lifeguards,Point Lookout, Long Beach, Long Island, Firest Responders, Ocean Rescue">
 	<meta charset="utf-8">
   	<meta name="author" content="b7ttd">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -37,7 +18,7 @@ $db = new MyDB();
 </head>
 <body>
 <div class="myPageWrapper">
-<div class="myPage" style="min-height: <?php echo $db->querySingle('SELECT pixels FROM posts WHERE page="'.$page.'"')?>px;">
+<div class="myPage" id="myPage" style="min-height: 1400px;">
 
 <!-- myTabs begins here -->
 <div class="container" style="height:410px">
@@ -50,8 +31,8 @@ $db = new MyDB();
 			</a>
 		</div>
 	</div>
-	<!-- Right Section -->
-	<div class="right-element">
+	<!-- Right Section of Header -->
+	<div class="right-element" style="height:;width:;">
 		<h2>Contact Information</h2>
 		<p>
 			Chief Anthony Romano
@@ -78,19 +59,31 @@ $db = new MyDB();
 </div>
 <!-- Navigation Tabs -->
 <div id='myTabs' class="container" style="top:-10px;height: 30px; border: 2px;">
-	<a href="/index.html" class='tabTitle tabHome'>Home</a>
-	<a href="/our_beaches.html" class='tabTitle tabPage1'>Our Beaches</a>
-	<a href="/employment.html" class='tabTitle tabPage2'>Employment</a>
-	<a href="/forms.html" class='tabTitle tabPDFs'>Forms</a>
-	<a href="/media.html" class='tabTitle tabPDFs'>Media</a>
-	<a href="/contact_us.html" class='tabTitle tabReports'>Contact Us</a>
-	<a href="/staff_login.html" class='tabTitle tabLogin'>Staff Login</a>
+	<a href="/index.html/" class='tabTitle tabHome'>Home</a>
+	<a href="/our_beaches/" class='tabTitle tabPage1'>Our Beaches</a>
+	<a href="/employment/" class='tabTitle tabPage2'>Employment</a>
+	<a href="/forms/" class='tabTitle tabPDFs'>Forms</a>
+	<a href="/media/" class='tabTitle tabPDFs'>Media</a>
+	<a href="/contact_us/" class='tabTitle tabReports'>Contact Us</a>
+	<a href="/staff_login/" class='tabTitle tabLogin'>Staff Login</a>
 </div>
 <!-- End Navigation Tabs -->
 <!--Begin index content-->
 		
-		<div class="myPageContent">
- <?php echo file_get_contents("./homepage.html")?>
+		<div id="myPageContent" class="myPageContent">
+			<h1>Beach Chair Request Form</h1>
+		<form>
+		<label for="fname">First name:</label><br>
+  		<input type="text" id="fname" name="fname"><br>
+  		<label for="lname">Last name:</label><br>
+		<label for="beach">What beach are you located:</label><br>
+		<label for="need">What time do you need it? If immediately, please put in the current time</label>
+		<p> PLEASE be aware due to staffing shortage the beach-chair may not be avaliable immediately.
+		</p>
+  		<input type="text" id="lname" name="lname">
+		</form>
+		</div>
+
 		</div>
 <!-- Begin footer content -->
 <hr>
@@ -109,4 +102,14 @@ $db = new MyDB();
 	</div> <!--endOfPage-->
 </div><!--endOfPageWrapper-->
 </body>
+<script>
+// js
+const myPageContent = fetch('./myPageContent.json')
+	.then(res => res.json() )
+	.then(data => console.log(data));
+console.log(res);
+document.getElementById("myPageContent").innerhtml=myPageContent.homepage.atob(body);
+//document.getElementById("myPage").setAttribute("style","min-height"+page_info.pixes);
+document.getElementById("title_js").innerHTML="penis";
+</script>
 </html>

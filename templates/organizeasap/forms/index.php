@@ -1,6 +1,6 @@
 <?php 
-require '../inc/instance-config.php';
-require '../inc/functions.php' ;
+require '../../inc/instance-config.php';
+require '../../inc/functions.php' ;
 error_reporting(E_ALL);
 ini_set('display_errors','1');
 $page="home"; if (isset($_GET['page'])) $page=$_GET['page'];
@@ -8,7 +8,7 @@ class MyDB extends SQLite3
 {
     function __construct()
     {
-        $this->open('../tmp/website.db');
+        $this->open('../../tmp/website.db');
     }
 }
 
@@ -78,19 +78,21 @@ $db = new MyDB();
 </div>
 <!-- Navigation Tabs -->
 <div id='myTabs' class="container" style="top:-10px;height: 30px; border: 2px;">
-	<a href="/index.html" class='tabTitle tabHome'>Home</a>
-	<a href="/our_beaches.html" class='tabTitle tabPage1'>Our Beaches</a>
-	<a href="/employment.html" class='tabTitle tabPage2'>Employment</a>
-	<a href="/forms.html" class='tabTitle tabPDFs'>Forms</a>
-	<a href="/media.html" class='tabTitle tabPDFs'>Media</a>
-	<a href="/contact_us.html" class='tabTitle tabReports'>Contact Us</a>
-	<a href="/staff_login.html" class='tabTitle tabLogin'>Staff Login</a>
+	<a href="/" class='tabTitle tabHome'>Home</a>
+	<a href="/our_beaches/" class='tabTitle tabPage1'>Our Beaches</a>
+	<a href="/employment/" class='tabTitle tabPage2'>Employment</a>
+	<a href="/forms/" class='tabTitle tabPDFs'>Forms</a>
+	<a href="/media/" class='tabTitle tabPDFs'>Media</a>
+	<a href="/contact_us/" class='tabTitle tabReports'>Contact Us</a>
+	<a href="/staff_login/" class='tabTitle tabLogin'>Staff Login</a>
 </div>
 <!-- End Navigation Tabs -->
 <!--Begin index content-->
 		
 		<div class="myPageContent">
- <?php echo file_get_contents("./homepage.html")?>
+		<h1 style = "text-align:center" data-text="PDF Files"> PDF Files</h1>
+			<div class="subtitle"></div></header><body><div class="myTextBox"><table border="1" style="width:100%"><tr><th>Staff</th><th>Time</th><th>Category</th><th>PDF Link</th></tr><tr><td class=minimal>b7ttd</td><td class=minimal>Lost</td><td>Comps</td><td><a href="/static/TOHWomenLifeguardTournament.pdf">Womens Lifeguard Comp</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Employment</td><td><a href="https://hempsteadny.gov/DocumentCenter/View/493/Nassau-County-Lifeguard-Certification-Information-PDF">Nassau County Lifeguard Certification Information</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Surfing Safety Guide</td><td><a href="https://hempsteadny.gov/DocumentCenter/View/6780/Surfing-Safety-Guide-2024-PDF">Surfing Safety Guide</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Beach Safety Guide</td><td><a href="https://hempsteadny.gov/DocumentCenter/View/6766/Beach-Safety-Rules-2024-PDF">Beach Safety Rules</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Beach Safety Guide</td><td><a href="https://www.nassaucountyny.gov/DocumentCenter/View/1278/Eisenhower-Park-Map?bidId=">Eisenhower Park Map</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Town Lifeguard Merch</td><td><a href="/static/TOHLifeguardMerch.pdf">Town Lifeguard Merch</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Direct Deposit Form</td><td><a href="/static/DirectDepositForm.pdf">Direct Deposit Form</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Lifeguard Qualifications</td><td><a href="https://www.nassaucountyny.gov/DocumentCenter/View/45274/Application-for-Approval-of-Lifeguard-Qualifications?bidId=">Lifeguard Qualifications</a></td></tr><tr><td>b7ttd</td><td>Lost</td><td>Lifeguard Qualifications</td><td><a href="https://cdn.ymaws.com/www.usla.org/resource/resmgr/guidelines/USLA_Guideline_001_Certifica.pdf">Open Water Lifeguard Agency Certification</a></td></tr></table></div>
+
 		</div>
 <!-- Begin footer content -->
 <hr>

@@ -54,27 +54,37 @@
 	// to the environment path (seperated by :).
 	$config['shell_path'] = '/usr/local/bin';
 
+	$config['auto_maintenance'] = true;
+/*
+ * ====================
+ * Website Settings
+ * ====================
+ */
+	// For any entry below, to set it to empty, make it null
+	// These entires are setting based, the first description is the
+	$config['web_title'] = 'TOH Ocean Rescue'; 
+	$config['web_description'] = 'Ocean Rescue for Long Island, serving since like, uh, a really long time..';
+	$config['web_keywords'] = 'Lifeguards, Point Lookout, Long Beach, Long Island, First Responders, Ocean Rescue';
+	// Do you want a copyright on the bottom?
+	$config['web_footer'] = true; 
+	$config['web_tabs'] = true;
+	$config['web_icon'] = '/srv/http/tohorweb/static/wp-content/TownOfHempsteadLogo.ico';
+	$config['phone_number'] = '516-801-5699';
+	
 /*
  * ====================
  *  Database settings
  * ====================
  */
-	$config['dbpath'] = 'i_didint_edit_the_config';
-	$config['lgdatapath'] = 'i_didint_edit_the_config';
-	$Config['staticpath'] = 'i_didint_edit_the_config';
-/* Fair warning, all this shit below is for SQL.	
-	// Database driver (http://www.php.net/manual/en/pdo.drivers.php)
-	// Only MySQL is supported by Tinyboard at the moment, sorry.
-	$config['db']['type'] = 'mariadb';
-	// Hostname, IP address or Unix socket (prefixed with ":")
-	$config['db']['server'] = 'localhost';
+	$config['dbpath'] = '/srv/http/tohorweb/tmp/logindetail.csv';
+	$config['lgdatapath'] = '/srv/http/tohorweb/tmp/lgdata.csv';
+	$Config['staticpath'] = 'srv/http/tohorweb/static/';
+	// Database driver (https://www.php.net/manual/en/book.sqlite3.php)
+	$config['db']['type'] = 'sqlite3';
 	// Example: Unix socket
-	// $config['db']['server'] = ':/tmp/mysql.sock';
-	// Login
-	$config['db']['user'] = 'root';
-	$config['db']['password'] = '';
+	// $config['db']['server'] = ':/tmp/website.db';
 	// Tinyboard database
-	$config['db']['database'] = '';
+	$config['db']['database'] = 'website.db';
 	// Table prefix (optional)
 	$config['db']['prefix'] = '';
 	// Use a persistent database connection when possible
@@ -83,7 +93,6 @@
 	$config['db']['dsn'] = '';
 	// Connection timeout duration in seconds
 	$config['db']['timeout'] = 30;
- */
 	
 
 /*
@@ -145,7 +154,7 @@
 	$config['cookies']['expire'] = 60 * 60 * 24 * 30 * 6; // ~6 months
 
 	// Make this something long and random for security.
-	$config['cookies']['salt'] = 'abcdefghijklmnopqrstuvwxyz012345789';
+	$config['cookies']['salt'] = 'S3v3nScr0lls,S3v3nR1ngs,S3v3nS0ulsF0rTh3Scarl3tK1ng';
 
 	// Whether or not you can access the mod cookie in JavaScript. Most users should not need to change this.
 	$config['cookies']['httponly'] = true;
@@ -617,9 +626,13 @@
 
 /*
  * ====================
- *  Mod settings
+ *  Staff Settings
  * ====================
  */
+	
+	// Important to note, we just gonna call it a mod
+	
+	// Location of the dashboard 
 	$config['mod']['dashboard_path'] = '/templates/mod/dashboard.php';
 	// Limit how many bans can be removed via the ban list. Set to false (or zero) for no limit.
 	$config['mod']['unban_limit'] = false;
@@ -752,7 +765,7 @@
 
 	// Capcode permissions.
 	$config['mod']['capcode'] = array(
-	//	JANITOR		=> array('Janitor'),
+	//	LIFEGUARD	=> array('Janitor'),
 		MOD		=> array('Mod'),
 		ADMIN		=> true
 	);
@@ -1014,4 +1027,6 @@
 	// Regex for board URIs. Don't add "`" character or any Unicode that MySQL can't handle. 58 characters
 	// is the absolute maximum, because MySQL cannot handle table names greater than 64 characters.
 	$config['board_regex'] = '[0-9a-zA-Z$_\x{0080}-\x{FFFF}]{1,58}';
+	
 ?>
+	
